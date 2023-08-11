@@ -1,2 +1,1 @@
-# widget-propio
-🔥 CREO WIDGET PERSONALIZADO para transmisiones 🔥 😲 | HTML + CSS + OBS Studio | Te sorprenderás 👌
+Simple example of HTML5 video overlay
