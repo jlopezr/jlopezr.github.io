@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>function refresh() { setTimeout(function () { location.reload() }, 600000); } refresh(); </script>
+    <style>
+      
+
+
+
+#tick li,
+#tick2 li {
+	list-style-type: none;
+	float: left;
+	padding-right: 20px;
+	position: absolute;
+	left: 0px;
+}
+
+#tick,
+#tick2 {
+	position: relative;
+	display: block;
+	width: 500000px;
+	margin: 0;
+	content: "";
+	display: table;
+	height: 0px;
+}
+
+#outer {
+	width: 1700px;
+	height: 20px;
+	overflow: hidden;
+	position: absolute;
+	top: 4px;
+}
+
+#outer p {
+	color: white;
+	text-transform: uppercase;
+	/* border-right: solid 3px #fff; */
+	padding-left: 10px;
+	padding-right: 20px;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+
+    </style>
+</head>
+
+<body>
+    
+<div class="_commonWrapper">
+    <!-- <video autoplay muted loop id="myVideo">
+    <source src="bg.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+ -->
+    <!-- <div id="_theClock" class="clock" onload="showTime()"></div> -->
+
+    <div class="__ticker_">
+        <div class="triangle-right" id="triangle-right"></div>
+        <div class="__breaking" id="_newHead"><h1 style="font-size: 60px;">Breaking News</h1></div>
+        <div class="__channelLogo"><img src="arrow.png"></div>
+        <div class="__headlinesLogo"> <div id="_theClock" class="clock" onload="showTime()"></div> <img id="thisImg" src="amagi.png"></div>
+        <div class="__grey"> <h1 id="newHolder"> </h1> </div>
+       
+           
+
+        <div class="__footer wrap ">
+            <div class="ticker ">
+              <div class="ticker__list ___ticker">
+              <div id="outer">
+              <div id ="tick">
+                <li><p class="">Mark Zuckerberg’s Meta rehires staff after cutting over 20,000 jobs</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">Are Aussie tourism operators ready to welcome Chinese tour groups back?</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">Cheng Lei, imprisoned Australian journalist, reveals harsh prison conditions</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">Tragic Tesla Collision in Virginia Sparks Investigation by US Authorities</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">UN urges FIFA to award equal prize money for Women’s World Cup</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">Elon Musk is auctioning Twitter memorabilia and signs</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">Trump’s bid to move  election conspiracy trial out of Washington won’t be easy</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">Should Australia embrace nuclear energy?</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">U.S. prosecutors proposes January as start for Donald Trump’s election trial</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li> <li><p class="">Logan Paul says energy drink, Prime Energy is not being investigated</p> <img src="scroll_cut.png" style="top:3px; position:absolute; left: -18px;" /> </li>         </div>
+            <div id="tick2"></div>
+      </div>
+              </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+</div>
+
+</body>
+
+
+<script src="Controller.js"></script>
+<script src="jquery.min.js"></script>
+
+
+<script>
+
+    
+		
+$("#triangle-right").delay(5000).fadeOut(800); 
+      
+$('#tick2').html($('#tick').html());
+
+
+var temp=0,intervalId=0;
+$('#tick li').each(function(){
+  var offset=$(this).offset();
+  var offsetLeft=offset.left;
+  $(this).css({'left':offsetLeft+temp});
+  temp=$(this).width()+temp+10;
+
+});
+
+
+$('#tick').css({'width':temp+40, 'margin-left':'10px'});
+
+temp=0;
+$('#tick2 li').each(function(){
+  var offset=$(this).offset();
+  var offsetLeft=offset.left;
+  $(this).css({'left':offsetLeft+temp});
+  temp=$(this).width()+temp+10;
+});
+
+
+$('#tick2').css({'width':temp+40,'margin-left':temp+40});
+
+function abc(a,b) {  
+    
+    var marginLefta=(parseInt($("#"+a).css('marginLeft')));
+    var marginLeftb=(parseInt($("#"+b).css('marginLeft')));
+    if((-marginLefta<=$("#"+a).width())&&(-marginLefta<=$("#"+a).width())){
+        // $("#"+a).css({'margin-left':(marginLefta-1)+'px'});
+        $("#"+a).css({'margin-left':(marginLefta-1)+'px'});
+    } else {
+        $("#"+a).css({'margin-left':temp});
+    }
+    if((-marginLeftb<=$("#"+b).width())){
+        $("#"+b).css({'margin-left':(marginLeftb-1)+'px'});
+    } else {
+        $("#"+b).css({'margin-left':temp});
+    }
+} 
+    intervalId = window.setInterval(function() { abc('tick','tick2'); }, 7);
+
+
+</script>
+
+
+<script type="text/javascript">
+    $(function(){
+    
+        var dataArray=new Array();
+        dataArray[0]="headlines.png";
+        dataArray[1]="amagi.png";
+
+        var thisId=0;
+
+        window.setInterval(function(){
+            $('#thisImg').attr('src',dataArray[thisId]).fadeIn();
+            if(dataArray[thisId] == "headlines.png") {
+                $('#_theClock').fadeIn(10);
+            } else {
+                $('#_theClock').fadeOut(10);
+            }
+            thisId++;
+            if (thisId==2) thisId=0; 
+        },5000);        
+    });
+</script>
+
+<script>
+    // INIT SCROLL LIBRARY.
+    DocReady();
+
+</script>
+
+
+<script>
+
+    $(document).ready(function() {
+
+      function fetchdata(){
+          $.ajax({
+            url: 'test.php',
+            type: 'POST',
+            success: function(UpdatedData){
+              let ThisData = 'Thu, 10 Aug 2023 22:48:06 +0000';
+            //   console.log(ThisData);
+              if(ThisData != UpdatedData) {     
+                                  window.location.reload(true);
+                            }
+
+            },
+            complete:function(data){
+                setTimeout(fetchdata,3000);
+            }
+          });
+          }
+            
+
+          $(document).ready(function(){
+            let timer = setTimeout(fetchdata,3000);
+  
+          }); 
+
+
+          
+     
+/*         function loadlink(){
+ 
+            $.ajax({ url: 'test.php',
+                dataType: 'text',
+                type: 'POST',
+                success: function(Output) {
+                    let ThisData = '';
+                  
+                    if(ThisData != Output) {     
+                         window.location.reload(true);
+                         //console.log('Data Updated Successfully');
+                    }
+                            
+                }
+                });
+                
+        }
+
+        loadlink(); 
+        setInterval(function(){
+            loadlink() 
+        }, 2000); */
+
+    });
+
+</script>
+
+
+
+
+</html>
