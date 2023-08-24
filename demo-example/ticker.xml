@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ticker>
+    <media id="Movie_294193_399369">
+        <line1>Red, White and Royal Blue</line1>
+        <line2>Funny, sweet tale of royal sparks and political shenanigans</line2>
+    </media>
+    <media id="Movie_291100_974481">
+        <line1>Scrapper</line1>
+        <line2>Bittersweet and charming story about a dad and his daughter</line2>
+    </media>
+    <media id="Movie_286010_152833">
+        <line1>Heart of Stone</line1>
+        <line2>Gal Gadot is ready for action in this spy flick</line2>
+    </media>
+    <media id="Movie_285770_389976">
+        <line1>The Blackening</line1>
+        <line2>Horror parody that flips typical genre tropes upside down</line2>
+    </media>
+    <media id="Movie_275775_62146">
+        <line1>Blue Beetle</line1>
+        <line2>Prepare for a superhero origin story like no other</line2>
+    </media>
+    <media id="Movie-291033-513298">
+        <line1>Theater Camp</line1>
+        <line2>Who doesn't like to sing, dance and have fun on summer camp?</line2>
+    </media>
+    <media id="Movie_281945_756963">
+        <line1>Gran Turismo</line1>
+        <line2>Strap in for the true, inspring story about gamer to racer</line2>
+    </media>
+    <media id="Movie_278873_146492">
+        <line1>Meg 2: The Trench</line1>
+        <line2>Brace yourself for a battle against the ultimate predator</line2>
+    </media>
+    <media id="Movie_291404_79067">
+        <line1>Joy Ride</line1>
+        <line2>Get ready to buckle up, laugh out loud, and enjoy the ride!</line2>
+    </media>
+    <media id="Movie_284121_806138">
+        <line1>Teenage Mutant Ninja Turtles: Mutant Mayhem</line1>
+        <line2>A shell-tastic journey with laughs, ninja skills, and pizza!</line2>
+    </media>
+</ticker>
