@@ -25,11 +25,10 @@
 			z-index: 2;
 			animation: mover_caja 2s forwards;
 			animation-timing-function: linear;
-			animation-delay: 100s;
+			animation-play-state: paused;
 		}
-		main{
-			max-width: 1280px;
-			width: 100%;
+		main{			
+			width: 100000px;
 			height: 60px;
 			background: #0fa89c;
 			color: #fff;
@@ -40,7 +39,7 @@
 			left: 0;
 			animation: mover_caja 2s forwards;
 			animation-timing-function: linear;
-			animation-delay: 100s;
+			animation-play-state: paused;
 		}
 		@keyframes mover_caja {
 			0%{
@@ -62,12 +61,13 @@
 			letter-spacing: 1px;
 			word-spacing: 2px;
 			font-weight: 400;
+			white-space: normal;
+  			overflow: visible;
 		}
 		#movimiento{
 			top: 0;
 			position: absolute;
-			left: 0;
-			width: 8000px;
+			left: 0;			
 			animation: mover_texto 100s forwards;
 			animation-timing-function: linear;
 		}
@@ -89,7 +89,41 @@
 <body>
 	<img class="triangulo" src="img/triangulo-2.png">
 	<main>
-		<h1 id="movimiento">Spécial Rentrée - Le retour à l'école se fait en douceur grâce à nos recommandations de films et de séries! | Des plus connus à ceux passés inaperçus, vous présente les jeux vidéo qui ont été adaptés au cinéma et à la télévision. | Lequel préférez-vous ? chaîne fêter Pâques | Bleiben Sie über Filmveröffentlichungen auf dem Laufenden, die Sie von der Couch aus ansehen können Archäologen Anlässlich | Wenn dir „Der Super Mario Bros. Film” gefallen hat, empfehlen wir dir... größten</h1>
+		<h1 id="movimiento"></h1>
 	</main>
 </body>
+<script type="text/javascript">
+	const titulo = document.querySelector('h1');
+	const movimiento = document.querySelector('#movimiento');
+	const triangulo = document.querySelector('.triangulo');
+	const mainDiv = document.querySelector('main');
+
+	const tituloText = 'Spécial Rentrée - Le retour à l\'école se fait en douceur grâce à nos recommandations de films et de séries! | Des plus connus à ceux passés inaperçus, vous présente les jeux vidéo qui ont été adaptés au cinéma et à la télévision. | Lequel préférez-vous ? chaîne fêter Pâques | Bleiben Sie über Filmveröffentlichungen auf dem Laufenden, die Sie von der Couch aus ansehen können Archäologen Anlässlich | Wenn dir „Der Super Mario Bros. Film” gefallen hat, empfehlen wir dir... größten';
+	titulo.textContent = tituloText;
+	
+	const tituloWidth = titulo.offsetWidth;
+	console.log(`The width of the h1 text is ${tituloWidth}px`);
+	const animationDuration = (tituloWidth * 20/678)*1000; // Adjust this value to change the animation speed
+	console.log(`Duration is ${animationDuration}ms`);
+	movimiento.style.animationDuration = `${animationDuration}ms`;
+	//titulo.style.width = `${tituloWidth}px`;
+	
+	triangulo.addEventListener('animationstart', () => {
+		console.log(`${new Date().toLocaleTimeString()} - Caja Animation started`);
+	});
+
+	triangulo.addEventListener('animationend', () => {
+		console.log(`${new Date().toLocaleTimeString()} - Caja Animation ended`);
+	});
+
+	movimiento.addEventListener('animationstart', () => {
+		console.log(`${new Date().toLocaleTimeString()} - Texto Animation started`);
+	});
+
+	movimiento.addEventListener('animationend', () => {
+		console.log(`${new Date().toLocaleTimeString()} - Texto Animation ended`);
+		triangulo.style.animationPlayState = "running";
+		mainDiv.style.animationPlayState = "running";
+	});
+</script>
 </html>
